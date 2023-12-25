@@ -1,4 +1,6 @@
-
+                                                *********************
+                                                    About Project
+                                                *********************
 Welcome to the Automated Risk Identification Project documentation. This project aims to revolutionize risk management by leveraging artificial intelligence (AI) to automate the process of risk identification and prioritization. With a focus on the NIST Cybersecurity Framework (CSF), this innovative solution categorizes risks into Information Security (IS) and Data Privacy (DP) risks, providing a standardized approach to risk management.
 
 Machine Learning Models
