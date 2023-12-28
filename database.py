@@ -51,3 +51,25 @@ def login_user(email, password):
 
     except mysql.connector.Error as e:
         print(f"Error: {e}")
+
+
+def forgotPassword(email):
+    try:
+        cursor = connection.cursor()
+        select_query = "SELECT * FROM users WHERE email = %s"
+        
+        # Make sure data is a tuple by adding a comma
+        data = (email,)
+        cursor.execute(select_query, data)
+
+        # Fetch the result
+        user = cursor.fetchone()
+
+        if user:
+            # If the user is found, retrieve the password
+            
+            return user[3]
+        else:
+            return False
+    except mysql.connector.Error as e:
+        print(f"Exception occur in forgotpassword: {e}")

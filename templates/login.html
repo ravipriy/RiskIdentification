@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Registration</title>
+    <title>Login</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 
     <style>
         body {
@@ -67,11 +67,13 @@
         <form id="logindata" action="{{ url_for('validatelogin') }}" method="post">
             <input type="text" placeholder="Email" name="username" required>
             <input type="password" placeholder="Password" name="password" required>
-    <div class="g-recaptcha" data-sitekey="6Ld3tD4pAAAAAIWA9aYQnJaNCSCM0RNwMGrmUya8"></div>
+    <!-- <div class="g-recaptcha" data-sitekey="6Ld3tD4pAAAAAIWA9aYQnJaNCSCM0RNwMGrmUya8"></div> -->
 
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+        <p>Forgot password? <a href="{{ url_for('forgot') }}">Forgot Password</a></p>
+        
     </div>
 
     <script>

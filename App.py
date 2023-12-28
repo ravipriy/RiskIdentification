@@ -46,6 +46,30 @@ def registeruser():
         else:
             print("Unable to insert")
 
+@app.route('/forgot')
+def forgot():
+    return render_template('forgotpassword.html')
+
+@app.route('/forgotuser', methods=['POST'])
+def forgotuser():
+    flag = 0
+    if request.method == 'POST':
+        email = request.form['username']
+
+        eemail = encryDecrypt.encrypt_des('arav', email)
+        dpass = database.forgotPassword(eemail)
+        originalpass = ""
+
+        if dpass:
+            flag = 1
+            originalpass = encryDecrypt.decrypt_des('arav', dpass)
+
+        if flag:
+            response_data = {'message': 'Your password is \n' + originalpass}
+            return jsonify(response_data)
+        else:
+            return render_template('forgotpassword.html')
+
 
 @app.route('/validatelogin', methods=['POST'])
 def validatelogin():
