@@ -154,14 +154,18 @@
     <ul class="nav justify-content-end">
 
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
+            <a class="nav-link" aria-current="page" href="{{ url_for('homepage') }}"><b>Home</b></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#" onclick="printdoc()">Print Documentation</a>
+            <a class="nav-link" aria-current="page" href="#" onclick="printdoc()"><b>Print Documentation</b></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" id="openPopup">About</a>
+            <a class="nav-link" href="#" id="openPopup"><b>About</b></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/" id="openPopup"><b>Logout</b></a>
         </li>
     </ul>
 
@@ -299,8 +303,8 @@
             <p>In the flask we are using three templates </p>
             <div>
                 <ul>
-                    <li><a href="https://github.com/ravipriy/AutomatedRiskIdentification/tree/master/My%20Project/templates/index.html"
-                            target="_blank">index.html</a></li>
+                    <li><a href="https://github.com/ravipriy/AutomatedRiskIdentification/tree/master/My%20Project/templates/homepage.html"
+                            target="_blank">homepage.html</a></li>
                     <li><a href="https://github.com/ravipriy/AutomatedRiskIdentification/tree/master/My%20Project/templates/documentation.html"
                             target="_blank">documentation.html</a></li>
                     <li><a href="https://github.com/ravipriy/AutomatedRiskIdentification/tree/master/My%20Project/templates/pridect.html"

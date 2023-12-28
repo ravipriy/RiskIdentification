@@ -114,7 +114,7 @@
     <ul class="nav justify-content-end">
 
         <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
+            <a class="nav-link" aria-current="page" href="{{ url_for('homepage') }}">Home</a>
         </li>
 
         <li class="nav-item">
@@ -123,6 +123,10 @@
         <li class="nav-item">
             <a class="nav-link" href="#" id="openPopup">About</a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/" id="openPopup"><b>Logout</b></a>
+          </li>
     </ul>
     <div class="overlay" id="popupOverlay">
         <div class="popup-content">

@@ -1,2 +1,5 @@
 Flask
 scikit-learn
+mysql-connector-python
+cryptography
+pycryptodome

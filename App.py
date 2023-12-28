@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, jsonify, url_for
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
-
+import database
+import encryDecrypt
 
 app = Flask(__name__)
 
@@ -18,7 +19,52 @@ with open('./model/model.pickle', 'rb') as file:
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('login.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+@app.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
+
+@app.route('/registeruser', methods=['POST'])
+def registeruser():
+    if request.method == 'POST':
+        name=request.form['fullname']
+        email=request.form['email']
+        password=request.form['password']
+
+        eemail=encryDecrypt.encrypt_des('arav',email)
+        epassword=encryDecrypt.encrypt_des('arav',password)
+
+        tf=database.registerUserIntoDb(name,eemail,epassword)
+        if(tf):
+            response_data = {'message': 'Registration successful\nNow you can Login'}
+            return jsonify(response_data)
+        else:
+            print("Unable to insert")
+
+
+@app.route('/validatelogin', methods=['POST'])
+def validatelogin():
+    if request.method == 'POST':
+        email = request.form['username']
+        password = request.form['password']
+        
+        eemail=encryDecrypt.encrypt_des('arav',email)
+        epassword=encryDecrypt.encrypt_des('arav',password)
+       
+        checklogin = database.login_user(eemail, epassword)
+
+        if checklogin:
+            # Successful login, redirect to homepage without including the user's name in the URL
+            return jsonify({'success': True, 'redirect_url': url_for('homepage',x=checklogin)})
+        else:
+            # Invalid login
+            response_data = {'success': False, 'message': 'Invalid email or password. Please try again.'}
+            return jsonify(response_data)
 
 @app.route('/documentation')
 def documentation():
