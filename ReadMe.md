@@ -120,12 +120,6 @@ Contributions are welcome! If you have ideas or improvements, please:
 
 ---
 
-## 📜 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
----
-
 **Thank you for exploring this project! Feel free to reach out for collaboration or inquiries.** 😊
 
 --- 
